@@ -1,0 +1,27 @@
+@use 'sass:map';
+@use '@angular/material' as mat;
+@import "@angular/material";
+
+@mixin my-buttons-theme($theme) {
+  
+  $primary-color: mat.get-theme-color($theme, primary, default);
+  $warn-color: mat.get-theme-color($theme, warn, default);
+  $accent-color: mat.get-theme-color($theme, accent, default);
+
+  .mat-mdc-outlined-button.mat-primary:not([disabled]) {
+    border-color: $primary-color !important;
+  }
+  
+  .mat-mdc-outlined-button.mat-warn:not([disabled]) {
+    border-color: $warn-color !important;
+  }
+  
+  .mat-mdc-outlined-button.mat-accent:not([disabled]) {
+    border-color: $accent-color !important;
+  }
+  
+  // .mat-mdc-outlined-button.mat-unthemed:not([disabled]) {
+  //   // border-color: var(--mdc-outlined-button-label-text-color, rgba(0, 0, 0, 0.12));
+  //   border-color: var(--mdc-outlined-button-outline-color, rgba(0, 0, 0, 0.12))
+  // }
+}

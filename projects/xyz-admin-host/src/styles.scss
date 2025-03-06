@@ -1,0 +1,179 @@
+/* You can add global styles to this file, and also import other style files */
+// @import "~@ng-select/ng-select/themes/material.theme.css";
+
+@import "./theme.scss";
+
+html,
+body {
+  height: 100%;
+  // disable pull to back https://stackoverflow.com/questions/30636930/disable-web-page-navigation-on-swipeback-and-forward
+  overscroll-behavior-x: none !important;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.ps-1 {
+  padding-left: 1em !important;
+}
+
+.pe-1 {
+  padding-right: 1em !important;
+}
+
+.pt-1 {
+  padding-top: 1em !important;
+}
+
+.pb-1 {
+  padding-bottom: 1em !important;
+}
+
+.p-1 {
+  padding: 1em 1em 1em 1em !important;
+}
+
+.m-0 {
+  margin: 0px !important;
+}
+
+.mt-1 {
+  margin-top: 1em !important;
+}
+
+.mb-1 {
+  margin-bottom: 1rem !important;
+}
+
+.ms-1 {
+  margin-left: 1em !important;
+}
+
+.me-1 {
+  margin-right: 1rem !important;
+}
+
+.me-2 {
+  margin-right: 1.5rem !important;
+}
+
+/* ---------- */
+/*  mat icon  */
+/* ---------- */
+mat-icon {
+  // margin-top: 6px !important;
+  // font-size: 18px !important;
+  margin-right: 0px !important;
+}
+
+/* ---------- */
+/*  mat icon  */
+/* ---------- */
+
+.hand-cursor {
+  cursor: pointer !important;
+}
+
+.help-cursor {
+  cursor: help !important;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+// mat dialog fullscreen fix https://github.com/angular/components/issues/4609
+.mat-dialog-override {
+  mat-dialog-container {
+    > :first-child {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+
+    mat-dialog-content,
+    div[mat-dialog-content] {
+      flex-grow: 1;
+      max-height: unset;
+    }
+  }
+}
+
+.fw-500 {
+  font-weight: 500 !important;
+}
+
+a {
+  color: unset !important;
+  text-decoration: none !important;
+}
+
+.ok-color {
+  color: #0fd60f !important;
+}
+
+@media screen and (max-device-width: 959px) {
+  .cdk-overlay-container{
+    opacity: 0;
+  }
+}
+
+.color-ok {
+  color: #0fd60f !important;
+}
+
+// used to disable body scroll https://stackoverflow.com/a/74965499/7724301
+body:has(.requires-no-scroll) {
+  overflow: hidden;
+}
+
+body {
+  transition: background 103ms;
+}
+
+.mat-mdc-snack-bar-container {
+  --mat-snack-bar-button-color: var(--mat-toolbar-container-text-color);
+  --mdc-snackbar-container-color: var(--mat-toolbar-container-background-color);
+  --mdc-snackbar-supporting-text-color: var(--mat-toolbar-container-text-color);
+}
+
+.no-select-image {
+  pointer-events: none;
+  user-select: none;
+}
+
+.w-100 {
+  width: 100%;
+}
+
+.my-dark-theme .my-badge {
+  padding: 6px;
+  color: #fff;
+  background-color: rgb(33, 37, 41);
+  border-radius: .25rem;
+}
+
+.my-light-theme .my-badge {
+  padding: 6px;
+  color: black;
+  background-color: whitesmoke;
+  border-radius: .25rem;
+}

@@ -1,1 +1,1 @@
-# failed-to-resolve-module-specifier-repo-issue
+minimal reproduction repo from issue https://github.com/angular-architects/module-federation-plugin/issues/787

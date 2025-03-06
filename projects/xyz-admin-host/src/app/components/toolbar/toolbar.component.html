@@ -1,0 +1,70 @@
+<mat-toolbar>
+  <span class="pe-1">
+    <button mat-stroked-button (click)="open()" [attr.accesskey]="drawerIsOpen ? null : 'm'"
+      [mtxTooltip]="menuTooltipTpl" [mtxTooltipPosition]="'below'">
+      <fa-icon [icon]="icons.faBars"></fa-icon>
+    </button>
+  </span>
+  <div class="pt-custom-1">
+    @if (currentTheme === MyThemes.Dark) {
+      <img class="app-logo no-select-image" src="assets\logo\logo-xyz-b.svg">
+    } @else {
+      <img class="app-logo no-select-image" src="assets\logo\logo-xyz-n.svg">
+    }
+  </div>
+  <span class="example-spacer"></span>
+  <!-- home -->
+  <span class="pe-1">
+    <fa-icon matRipple (click)="goToRoot()" 
+      tabindex="0" [icon]="icons.faHome" class="hand-cursor">
+    </fa-icon>
+  </span>
+  <!-- theme -->
+  <span class="pe-1">
+    <fa-icon matRipple (click)="toggleTheme()" tabindex="0" class="hand-cursor"
+      [icon]="currentTheme === MyThemes.Dark ? icons.faSun : icons.faMoon"
+      [matTooltip]="'toolbar-toggle-theme' | translate">
+    </fa-icon>
+  </span>
+  <!-- fullscreen -->
+  <span class="pe-1">
+    <fa-icon matRipple (click)="toggleFullScreen()" tabindex="0" class="hand-cursor"
+      [icon]="isFullScreenEnabled ? icons.faCompress: icons.faExpand"
+      [matTooltip]="'toolbar-toggle-fullscreen' | translate">
+    </fa-icon>
+  </span>
+  <mat-chip-listbox class="pe-1" tabindex="-1">
+    <mat-chip>
+      <img matChipAvatar src="assets/icons/user.png"/>
+      {{userName}}
+    </mat-chip>
+  </mat-chip-listbox>
+  <!-- logout -->
+  <span class="pe-1">
+    <button mat-stroked-button color="primary" (click)="logout()" [loading]="isLoading">
+      <fa-icon [icon]="icons.faPowerOff"></fa-icon>
+      {{ 'toolbar-logout' | translate }}
+    </button>
+  </span>
+  <span class="pe-1" *ngIf="!updateAvailable; else elseUpdateAvailableBlock">v.{{version}}</span>
+  <ng-template #elseUpdateAvailableBlock>
+    <span class="pe-1">
+      <button mat-raised-button color="primary"
+        [loading]="isLoadingUpdate"
+        (click)="applyUpdate()"
+        accesskey="a">
+        <fa-icon [icon]="icons.faRotate"></fa-icon>
+        {{ 'toolbar-update-available' | translate }} (Alt + A)
+      </button>
+    </span>
+  </ng-template>
+</mat-toolbar>
+
+<!-- menu template -->
+<ng-template #menuTooltipTpl>
+  <div fxLayout="column" fxLayoutAlign="center center">
+    <div>{{ 'toolbar-menu' | translate }}</div>
+    <div><code [accesskeyShortcut]="'M'"></code></div>
+  </div>
+</ng-template>
+<!-- menu template -->

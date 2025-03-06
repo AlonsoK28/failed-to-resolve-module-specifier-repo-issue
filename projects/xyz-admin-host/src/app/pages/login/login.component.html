@@ -1,0 +1,80 @@
+<ng-container *ngIf="!isMobile; else elseBlockMobile">
+    <div [style.height.px]="4">
+        <mat-progress-bar mode="query" *ngIf="isLoading"></mat-progress-bar>
+    </div>
+
+    <app-language [isAlreadyOpenAnDialog]="false" [topSize]="'19'"></app-language>
+    
+    <div class="a basic-container" fxLayout="row" fxLayoutAlign="center center">
+        <div [style.height.px]="4">
+            <mat-progress-bar *ngIf="isLoading" mode="indeterminate"></mat-progress-bar>
+        </div>
+        <div class="main-div">
+            <mat-card appearance="outlined" [style.padding.rem]="3.3">
+                <div fxLayout="column" fxLayoutAlign="center center">
+                    @if (currentTheme === MyThemes.Dark) {
+                    <img class="app-logo no-select-image mb-1" src="">
+                    } @else {
+                    <img class="app-logo no-select-image mb-1" src="">
+                    }
+                    <h1> {{ 'login-form.title' | translate }} </h1>
+                </div>
+                <form [formGroup]="loginForm" class="example-form">
+                    <div fxLayout="row" fxLayoutAlign="start center">
+                        <mat-form-field class="example-full-width" appearance="outline" [style.width.%]="50">
+                            <mat-label>Email</mat-label>
+                            <input matInput placeholder="your@user.com" 
+                                type="email" autocomplete="email"
+                                formControlName="email"
+                                autofocus>
+                            <mat-error *ngIf="loginForm.get('email')?.hasError('required')">
+                                {{'login-form.email-required' | translate}}
+                            </mat-error>
+                            <mat-error *ngIf="loginForm.get('email')?.hasError('loginError')">
+                                {{'login-form.email-incorrect' | translate}}
+                            </mat-error>
+                        </mat-form-field>
+                        <mat-form-field class="example-full-width ps-1" appearance="outline" [style.width.%]="50">
+                            <mat-label>{{ 'password' | translate }} </mat-label>
+                            <!-- this reference '#' treats the element as HtmlElement -->
+                            <!-- <input matInput [placeholder]="'login-form.password-placeholder' | translate" 
+                                type="password" formControlName="password" #pass> -->
+                            <!-- <button mat-icon-button matSuffix tabindex="-1"
+                                type="button" (click)="pass.type=pass.type=='password'?'text':'password'">
+                                <mat-icon>
+                                    remove_red_eye
+                                </mat-icon>
+                            </button> -->
+                            <!-- reference example https://material.angular.io/components/form-field/examples -->
+                            <input matInput formControlName="password" [type]="hide ? 'password' : 'text'"  [placeholder]="'login-form.password-placeholder' | translate" autocomplete="off">
+                                <mat-error *ngIf="loginForm.get('password')?.hasError('required')">
+                                    {{'login-form.password-required' | translate}}
+                                </mat-error>
+                                <mat-error *ngIf="loginForm.get('password')?.hasError('loginError')">
+                                    {{'login-form.password-incorrect' | translate}}
+                                </mat-error>
+                            <button mat-icon-button matSuffix (click)="hide = !hide" type="button" tabindex="-1" [disabled]="loginForm.disabled">
+                                <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                            </button>   
+                        </mat-form-field>
+                    </div>        
+                    <div class="pt-custom-3">
+                        <div fxLayout="row" fxLayoutAlign="start center">
+                            <button mat-raised-button color="primary" (click)="loginWithEmail()" [disabled]="loginForm.disabled" [loading]="isLoading">
+                                {{ 'login-form.login' | translate }}
+                            </button>
+        
+                            <button mat-stroked-button type="button" color="primary" class="ms-1" (click)="loginWithGoogleWithRestrictions()" [disabled]="loginForm.disabled" [loading]="isLoading">
+                                <fa-icon [icon]="icons.faGoogle"></fa-icon> {{ 'login-form.login-with-google' | translate }}
+                            </button>
+                        </div>
+                    </div>    
+                </form>
+            </mat-card>
+        </div>
+    </div>
+
+</ng-container>
+<ng-template #elseBlockMobile>
+    <app-mobile-not-allowed></app-mobile-not-allowed>
+</ng-template>

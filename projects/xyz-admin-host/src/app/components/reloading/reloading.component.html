@@ -1,0 +1,5 @@
+<div [ngClass]="(myTheme$ | async)">
+    <div *ngIf="isReloading" class="example-loading-shade requires-no-scroll">
+        <mat-spinner></mat-spinner>
+    </div>
+</div>

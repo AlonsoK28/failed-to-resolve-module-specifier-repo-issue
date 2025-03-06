@@ -1,0 +1,25 @@
+<div class="select-lang" [ngStyle]="{'top': topSize + 'px'}">
+    <!-- languages -->
+    <mat-form-field appearance="outline" [style.minWidth.rem]="13.85">
+        <mat-label><fa-icon [icon]="icons.faLanguage"></fa-icon>&nbsp;{{ 'dashboard-lenguages-select-label' | translate }}&nbsp;<span [accesskeyShortcut]="'Y'"></span></mat-label>
+        <mat-select #langSelect [value]="selectedLang" 
+            (valueChange)="changeLang(langSelect.value)" 
+            [attr.accesskey]="!isAlreadyOpenAnDialog ? 'y' : null">
+            <mat-option *ngFor="let lang of langs" [value]="lang">
+                <div *ngIf="lang === 'en'"  fxLayout="row" fxLayoutAlign="start center">
+                    <img src="assets/i18n/icons/en-lang-icon.png" class="lang-icon">
+                    <span class="custom-ps-1">
+                        {{ 'lenguage.english' | translate }}
+                    </span>
+                </div>
+                <div *ngIf="lang === 'es'" 
+                    fxLayout="row" fxLayoutAlign="start center">
+                    <img src="assets/i18n/icons/es-lang-icon.png" class="lang-icon">
+                    <span class="custom-ps-1">
+                        {{ 'lenguage.spanish' | translate }}
+                    </span>
+                </div>
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+</div>

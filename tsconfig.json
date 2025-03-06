@@ -1,0 +1,67 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "baseUrl": "./",
+    "outDir": "./dist/out-tsc",
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "esModuleInterop": true,
+    "noImplicitOverride": true,
+    "noPropertyAccessFromIndexSignature": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "sourceMap": true,
+    "declaration": false,
+    "experimentalDecorators": true,
+    "moduleResolution": "node",
+    "importHelpers": true,
+    "target": "ES2022",
+    "module": "es2020",
+    "lib": [
+      "es2020",
+      "dom"
+    ],
+    "paths": {
+      "@pages/*": [
+        "projects/xyz-admin-host/src/app/pages/*"
+      ],
+      "@services/*": [
+        "projects/xyz-admin-host/src/app/services/*"
+      ],
+      "@pipes/*": [
+        "projects/xyz-admin-host/src/app/pipes/*"
+      ],
+      "@interfaces/*": [
+        "projects/xyz-admin-host/src/app/interfaces/*"
+      ],
+      "@environment": [
+        "projects/xyz-admin-host/src/environments/environment"
+      ],
+      "@components/*": [
+        "projects/xyz-admin-host/src/app/components/*"
+      ],
+      "@directives/*": [
+        "projects/xyz-admin-host/src/app/directives/*"
+      ],
+      "@interceptors/*": [
+        "projects/xyz-admin-host/src/app/interceptors/*"
+      ],
+      "@mocks/*": [
+        "projects/xyz-admin-host/src/app/mocks/*"
+      ]
+    },
+    "strictPropertyInitialization": false,
+    "resolveJsonModule": true,
+    "types": [
+      "node",
+      "jasmine"
+    ],
+    "useDefineForClassFields": false
+  },
+  "angularCompilerOptions": {
+    "enableI18nLegacyMessageIdFormat": false,
+    "strictInjectionParameters": true,
+    "strictInputAccessModifiers": true,
+    "strictTemplates": true
+  }
+}
